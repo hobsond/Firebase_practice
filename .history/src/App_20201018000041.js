@@ -1,0 +1,31 @@
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import axios from "axios";
+const [input, setInput] = useState("");
+const [returned, setReturned] = useState();
+const try_sum_url =
+  "https://console.firebase.google.com/project/streamline-4ea7b/overview";
+
+const try_sum = (e) => {
+  e.preventDefault();
+  axios
+    .post(try_sum_url, input)
+    .then((res) => setReturned(res))
+    .catch((err) => console.log(err));
+};
+
+const inChange = () => {
+  setInput(input);
+};
+
+function App() {
+  return (
+    <div className="App">
+      <input onChange={inChange} placeholder="try sum\n fuck it fuck it up" />
+      <button onClick={try_sum}>Send</button>
+    </div>
+  );
+}
+
+export default App;

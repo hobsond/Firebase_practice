@@ -3,8 +3,6 @@ import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 
-cp
-
 function App() {
   const [input, setInput] = useState("");
   const [returned, setReturned] = useState("nothing yet");
